@@ -26,7 +26,7 @@ deploy tasks.
 
 4. Run mvn package
 
-The resultant jar will just contain your generate classes. See the [Maven Shade plugin]
+The resultant jar will just contain your generated classes. See the [Maven Shade plugin]
 (http://maven.apache.org/plugins/maven-shade-plugin/) if you wish to build a jar file 
 which also contains their dependencies.
 
