@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>c24-io-samples</groupId>
+    <artifactId>c24-maven-template</artifactId>
+    <name>C24 iO Maven Template</name>
+    <packaging>jar</packaging>
+    <description>Generates Java classes from iO models and tranforms</description>
+    <version>1.0</version>
+
+    <developers>
+        <developer>
+            <id>andrewelmore</id>
+            <name>Andrew Elmore</name>
+            <email>andrew.elmore@c24.biz</email>
+        </developer>
+    </developers>
+
+    <properties>
+
+        <c24.api.version>4.4.3</c24.api.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>dd MMM yyyy HH:mm</maven.build.timestamp.format>
+
+    </properties>
+    
+    
+    <repositories>
+        <repository>
+            <id>c24-nexus</id>
+            <name>C24 Nexus</name>
+            <url>http://repo.c24io.net:8081/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>c24-nexus</id>
+            <name>C24 Nexus</name>
+            <url>http://repo.c24io.net:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>biz.c24.io</groupId>
+            <artifactId>c24-io-api</artifactId>
+            <version>${c24.api.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.c24.io.maven</groupId>
+                <artifactId>c24-maven-plugin</artifactId>
+                <version>4.1.4</version>
+                <executions>
+                    <execution>
+                        <id>c24-model-deploy</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <session>
+                                <deploy>
+                                    <generateMainMethods>false</generateMainMethods>
+                                    <toDir>target/generated-sources/src/main/java</toDir>
+                                    <deployEnvironment>false</deployEnvironment>
+                                    <fileSet>
+                                        <directory>${basedir}/src/main/C24</directory>
+                                        <includes>
+                                            <name>*.dod</name>
+                                            <name>*.tfd</name>
+                                        </includes>
+                                    </fileSet>
+                                    <namespace>
+                                        <uri>http://www.c24.biz/io/examples/models/basic</uri>
+                                    </namespace>
+                                </deploy>
+                            </session>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

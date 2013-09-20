@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<dataModel IOversion="3.1.0" attributeFormDefault="Unqualified" elementFormDefault="Qualified" encoding="UTF-8" encrypted="false" hibernateIDGeneratorMethodDefault="native" targetNamespace="http://www.c24.biz/io/examples/models/basic" targetPackage="biz.c24.samples" binaryMaskLength="0" binaryMaskStartPosition="0" name="Output.dod" version="0.0.2">
+  <type>
+    <complexType abstract="false" byteAlignment="No Alignment" contentModel="Sequence" excludeFromDatabase="false" processAsBatch="false" specialisation="Generic complex" specifyStructure="true" binaryMaskLength="0" binaryMaskStartPosition="0" name="Email">
+      <facet facetType="delimiter">
+        <value>Postfix|false|20</value>
+      </facet>
+      <facet facetType="format_type">
+        <value>Delimited</value>
+      </facet>
+      <element identifier="true" max="1" min="1" typeRef="FirstNameInitial" binaryMaskLength="0" binaryMaskStartPosition="0" name="FirstNameInitial"></element>
+      <element identifier="true" max="1" min="1" typeRef="Surname" binaryMaskLength="0" binaryMaskStartPosition="0" name="Surname"></element>
+      <element identifier="true" max="1" min="1" typeRef="DomainName" binaryMaskLength="0" binaryMaskStartPosition="0" name="DomainName"></element>
+    </complexType>
+  </type>
+  <element identifier="true" max="1" min="1" typeRef="Email" binaryMaskLength="0" binaryMaskStartPosition="0" name="Email"></element>
+  <type>
+    <atomicSimpleType baseType="#string" binaryMaskLength="0" binaryMaskStartPosition="0" name="FirstNameInitial"></atomicSimpleType>
+  </type>
+  <type>
+    <atomicSimpleType baseType="#string" binaryMaskLength="0" binaryMaskStartPosition="0" name="Surname"></atomicSimpleType>
+  </type>
+  <type>
+    <atomicSimpleType baseType="#string" binaryMaskLength="0" binaryMaskStartPosition="0" name="DomainName"></atomicSimpleType>
+  </type>
+  <type>
+    <complexType abstract="false" byteAlignment="No Alignment" contentModel="Sequence" excludeFromDatabase="false" processAsBatch="false" specialisation="Generic complex" specifyStructure="true" binaryMaskLength="0" binaryMaskStartPosition="0" name="Emails">
+      <facet facetType="terminator">
+        <value></value>
+      </facet>
+      <facet facetType="delimiter">
+        <value>Postfix|false|0d0a</value>
+      </facet>
+      <facet facetType="format_type">
+        <value>Delimited</value>
+      </facet>
+      <element identifier="true" max="-1" min="1" ref="Email" binaryMaskLength="0" binaryMaskStartPosition="0" name="Email"></element>
+    </complexType>
+  </type>
+  <element identifier="true" max="1" min="1" typeRef="Emails" binaryMaskLength="0" binaryMaskStartPosition="0" name="Emails"></element>
+  <namespace prefix="" uri="http://www.c24.biz/io/examples/models/basic"></namespace>
+</dataModel>

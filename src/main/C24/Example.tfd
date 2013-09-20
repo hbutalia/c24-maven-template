@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<transform IOversion="3.1.0" encrypted="false" processingOrder="Outputs" readOnly="false" saveLayout="true" targetNamespace="http://www.c24.biz/io/examples/transforms/basic" targetPackage="biz.c24.samples" validateInputs="false" validateOutputs="false" name="Example.tfd">
+  <input endID="0" modelRef="Input.dod" path="" required="false" typeRef="#Document Root"></input>
+  <contextPath contextRef="Emails/Email" endID="0" input="false" id="Emails_EmailO000"></contextPath>
+  <localTransformRef refId="EmployeeToEmail_Emails_EmailO00000" x="268" y="62" id="Emails_EmailO00000"></localTransformRef>
+  <contextPath contextRef="Employees/Employee" endID="0" input="true" id="Emails_EmailO0000000"></contextPath>
+  <translation inputID="Emails_EmailO00000" inputPort="0" outputID="Emails_EmailO000" outputPort="0"></translation>
+  <translation inputID="Emails_EmailO0000000" inputPort="0" outputID="Emails_EmailO00000" outputPort="0"></translation>
+  <output endID="0" modelRef="Output.dod" path="" required="false" typeRef="#Document Root"></output>
+  <localTransform id="EmployeeToEmail_Emails_EmailO00000">
+    <transform IOversion="3.1.0" encrypted="false" processingOrder="Outputs" readOnly="false" saveLayout="true" targetNamespace="http://www.c24.biz/io/examples/transforms/basic" targetPackage="biz.c24.samples" validateInputs="false" validateOutputs="false" name="EmployeeToEmail">
+      <input endID="0" modelRef="Input.dod" path="" required="false" typeRef="Employee"></input>
+      <contextPath contextRef="DomainName" endID="0" input="false" id="DomainNameO000"></contextPath>
+      <constant constant="@company.com" id="DomainNameO00000"></constant>
+      <contextPath contextRef="FirstName" endID="0" input="true" id="FirstNameInitialO000000000"></contextPath>
+      <contextPath contextRef="FirstNameInitial" endID="0" input="false" id="FirstNameInitialO000"></contextPath>
+      <transformMethod name="CONCAT" x="381" y="141" id="FirstNameInitialO00000"></transformMethod>
+      <transformMethod name="SUBSTRING" x="228" y="132" id="FirstNameInitialO0000000"></transformMethod>
+      <constant constant="0" id="FirstNameInitialO000000001"></constant>
+      <constant constant="1" id="FirstNameInitialO000000002"></constant>
+      <constant constant="." id="FirstNameInitialO0000001"></constant>
+      <contextPath contextRef="LastName" endID="0" input="true" id="SurnameO00000"></contextPath>
+      <contextPath contextRef="Surname" endID="0" input="false" id="SurnameO000"></contextPath>
+      <translation inputID="DomainNameO00000" inputPort="0" outputID="DomainNameO000" outputPort="0"></translation>
+      <translation inputID="FirstNameInitialO00000" inputPort="0" outputID="FirstNameInitialO000" outputPort="0"></translation>
+      <translation inputID="FirstNameInitialO0000000" inputPort="0" outputID="FirstNameInitialO00000" outputPort="0"></translation>
+      <translation inputID="FirstNameInitialO000000000" inputPort="0" outputID="FirstNameInitialO0000000" outputPort="0"></translation>
+      <translation inputID="FirstNameInitialO000000001" inputPort="0" outputID="FirstNameInitialO0000000" outputPort="1"></translation>
+      <translation inputID="FirstNameInitialO000000002" inputPort="0" outputID="FirstNameInitialO0000000" outputPort="2"></translation>
+      <translation inputID="FirstNameInitialO0000001" inputPort="0" outputID="FirstNameInitialO00000" outputPort="1"></translation>
+      <translation inputID="SurnameO00000" inputPort="0" outputID="SurnameO000" outputPort="0"></translation>
+      <output endID="0" modelRef="Output.dod" path="" required="false" typeRef="Email"></output>
+    </transform>
+  </localTransform>
+  <transformTestSuite></transformTestSuite>
+</transform>
