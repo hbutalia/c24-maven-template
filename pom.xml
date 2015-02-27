@@ -16,12 +16,18 @@
 			<name>Andrew Elmore</name>
 			<email>andrew.elmore@c24.biz</email>
 		</developer>
+        <developer>
+            <id>iainporter</id>
+            <name>Iain Porter</name>
+            <email>iain.porter@c24.biz</email>
+        </developer>
 	</developers>
 
 	<properties>
 
-		<c24.api.version>4.4.5</c24.api.version>
-		<c24.design.version>4.4.5</c24.design.version>
+        <c24.io.api.version>4.7.2</c24.io.api.version>
+        <c24.io.studio.version>4.7.4</c24.io.studio.version>
+        <c24.io.maven.version>4.7.1</c24.io.maven.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>dd MMM yyyy HH:mm</maven.build.timestamp.format>
@@ -53,7 +59,7 @@
 		<dependency>
 			<groupId>biz.c24.io</groupId>
 			<artifactId>c24-io-api</artifactId>
-			<version>${c24.api.version}</version>
+			<version>${c24.io.api.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -62,7 +68,7 @@
 			<plugin>
 				<groupId>biz.c24.io.maven</groupId>
 				<artifactId>c24-maven-plugin</artifactId>
-				<version>4.2.1</version>
+				<version>${c24.io.maven.version}</version>
 				<executions>
 					<execution>
 						<id>c24-model-deploy</id>
@@ -73,6 +79,15 @@
 									<generateMainMethods>false</generateMainMethods>
 									<toDir>target/generated-sources/src/main/java</toDir>
 									<deployEnvironment>false</deployEnvironment>
+
+                                    <!-- By default CDO's will be generated but you can optionally turn this off if you wanted SDO classes only-->
+                                    <deployAsCDO>true</deployAsCDO>
+
+                                    <!-- Deploy as SDO option-->
+                                    <!--<deployAsSDO>true</deployAsSDO>-->
+
+                                    <!-- Genrate code with java 8 options in which case the extra dependency on io-api-java8 will  be needed-->
+                                    <!--<javaVersion>JDK_8</javaVersion>-->
 									<fileSet>
 										<directory>${basedir}/src/main/C24</directory>
 										<includes>
@@ -93,14 +108,21 @@
 						<groupId>biz.c24.io</groupId>
 						<artifactId>c24-io-api</artifactId>
 						<!-- you can choose your own desired version here -->
-						<version>${c24.api.version}</version>
+						<version>${c24.io.api.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>biz.c24.io</groupId>
 						<artifactId>c24-io-studio</artifactId>
 						<!-- you can choose your own desired version here -->
-						<version>${c24.design.version}</version>
+						<version>${c24.io.studio.version}</version>
 					</dependency>
+
+                    <!-- if deploying with Java 8 option this will be needed-->
+                    <!--<dependency>-->
+                        <!--<groupId>biz.c24.io</groupId>-->
+                        <!--<artifactId>c24-io-api-java8</artifactId>-->
+                        <!--<version>${c24.io.api.version}</version>-->
+                    <!--</dependency>-->
 				</dependencies>
 			</plugin>
 		</plugins>
