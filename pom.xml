@@ -39,7 +39,7 @@
 		<repository>
 			<id>c24-nexus</id>
 			<name>C24 Nexus</name>
-			<url>http://repo.c24io.net:8081/nexus/content/groups/public</url>
+			<url>http://repo.c24io.net/nexus/content/groups/public</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -50,7 +50,7 @@
 		<pluginRepository>
 			<id>c24-nexus</id>
 			<name>C24 Nexus</name>
-			<url>http://repo.c24io.net:8081/nexus/content/groups/public</url>
+			<url>http://repo.c24io.net/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
