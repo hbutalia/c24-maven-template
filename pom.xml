@@ -25,9 +25,9 @@
 
 	<properties>
 
-        <c24.io.api.version>4.7.2</c24.io.api.version>
-        <c24.io.studio.version>4.7.4</c24.io.studio.version>
-        <c24.io.maven.version>4.7.1</c24.io.maven.version>
+        <c24.io.api.version>4.8.0</c24.io.api.version>
+        <c24.io.studio.version>4.8.0</c24.io.studio.version>
+        <c24.io.maven.version>4.8.0</c24.io.maven.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>dd MMM yyyy HH:mm</maven.build.timestamp.format>
@@ -83,8 +83,8 @@
                                     <!-- By default CDO's will be generated but you can optionally turn this off if you wanted SDO classes only-->
                                     <deployAsCDO>true</deployAsCDO>
 
-                                    <!-- Deploy as SDO option-->
-                                    <!--<deployAsSDO>true</deployAsSDO>-->
+                                    <!-- Deploy as Preon option-->
+                                    <!--<deployAsPreon>true</deployAsPreon>-->
 
                                     <!-- Genrate code with java 8 options in which case the extra dependency on io-api-java8 will  be needed-->
                                     <!--<javaVersion>JDK_8</javaVersion>-->
