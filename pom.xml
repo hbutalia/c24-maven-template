@@ -84,7 +84,7 @@
                                     <deployAsCDO>true</deployAsCDO>
 
                                     <!-- Deploy as Preon option-->
-                                    <!--<deployAsPreon>true</deployAsPreon>-->
+                                    <!--<deployAsSDO>true</deployAsSDO>-->
 
                                     <!-- Genrate code with java 8 options in which case the extra dependency on io-api-java8 will  be needed-->
                                     <!--<javaVersion>JDK_8</javaVersion>-->
